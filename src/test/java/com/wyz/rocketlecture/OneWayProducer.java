@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @Date: 2023/5/16 12:23
  * @Version: V1.0
  */
-@SpringBootTest
+// @SpringBootTest
 public class OneWayProducer {
     @Test
     public void onewayProducer() throws Exception {

@@ -6,6 +6,7 @@ import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
 import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
+import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.common.message.MessageExt;
 import org.junit.jupiter.api.Test;
@@ -14,10 +15,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 @SpringBootTest
-class RocketLectureApplicationTests {
+class SimpleMQ {
 
+    /**
+     * 同步消息发送
+     * @throws Exception
+     */
     @Test
-    void contextLoads() throws Exception {
+    void simpleSend() throws Exception {
         DefaultMQProducer producer = new DefaultMQProducer("test-producer-group");
         producer.setNamesrvAddr(MqConstant.NAME_SRV_ADDR);
 
@@ -25,10 +30,17 @@ class RocketLectureApplicationTests {
         producer.start();
 
         Message message = new Message("testRocketTopic", "我是第一个简单消息".getBytes());
-        producer.send(message);
+        SendResult send = producer.send(message);
+        // 得到返回值：有msgId，偏移量，发送状态
+        System.out.println(send);
         producer.shutdown();
     }
 
+    /**
+     * 消费者
+     *
+     * @throws Exception
+     */
     @Test
     void simpleConsumer() throws Exception {
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("test-consumer-group");

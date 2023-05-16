@@ -1,5 +1,6 @@
-package com.wyz.rocketlecture;
+package com.wyz.rocketlecture.produce;
 
+import com.wyz.rocketlecture.MqConstant;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.common.message.Message;
 import org.junit.jupiter.api.Test;
@@ -15,7 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class OneWayProducer {
     @Test
     public void onewayProducer() throws Exception {
-        DefaultMQProducer producer = new DefaultMQProducer("oneway-producer-group");
+        DefaultMQProducer producer = new DefaultMQProducer("test-oneway-producer-group");
         producer.setNamesrvAddr(MqConstant.NAME_SRV_ADDR);
         producer.start();
 

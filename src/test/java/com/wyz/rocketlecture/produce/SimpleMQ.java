@@ -1,5 +1,6 @@
-package com.wyz.rocketlecture;
+package com.wyz.rocketlecture.produce;
 
+import com.wyz.rocketlecture.MqConstant;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
@@ -14,6 +15,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
+/**
+ * 简单消息
+ */
 // @SpringBootTest
 class SimpleMQ {
 

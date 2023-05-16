@@ -1,5 +1,6 @@
-package com.wyz.rocketlecture;
+package com.wyz.rocketlecture.produce;
 
+import com.wyz.rocketlecture.MqConstant;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
@@ -21,7 +22,7 @@ import java.util.List;
 public class DMsTest {
     @Test
     public void delayMessageProduceTest() throws Exception {
-        DefaultMQProducer producer = new DefaultMQProducer("delay-producer-group");
+        DefaultMQProducer producer = new DefaultMQProducer("test-delay-producer-group");
         producer.setNamesrvAddr(MqConstant.NAME_SRV_ADDR);
         producer.start();
 

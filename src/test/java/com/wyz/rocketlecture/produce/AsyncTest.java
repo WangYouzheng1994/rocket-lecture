@@ -1,5 +1,6 @@
-package com.wyz.rocketlecture;
+package com.wyz.rocketlecture.produce;
 
+import com.wyz.rocketlecture.MqConstant;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.client.producer.SendCallback;
 import org.apache.rocketmq.client.producer.SendResult;
